@@ -19,4 +19,4 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-$this->resource('posts', 'PostController');
+Route::resource('posts', 'PostController');
