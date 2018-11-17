@@ -1,6 +1,14 @@
 <div class="">
     @if(auth()->check())
-    <form action="#" method="POST" class="form">
+
+        {{-- Mensagem de Sucesoo ao criar o comentário --}}
+        @if(session('success'))
+            <div class="alert alert-success">
+                {{ session('success')  }}
+            </div>
+        @endif
+
+    <form action="{{ route('comment.store')  }}" method="POST" class="form">
         @csrf
         <input type="hidden" name="post_id" value="{{$post->id}}">
 

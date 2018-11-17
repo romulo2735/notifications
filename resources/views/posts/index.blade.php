@@ -1,15 +1,27 @@
 @extends('layouts.app')
 
 @section('content')
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th scope="col-2">Postagens</th>
+            </tr>
+        </thead>
 
-    <h1>Posts</h1>
-    @forelse ($posts as $post)
-            {{ $post->title }}
-            <a href="{{ route('posts.show', $post->id )}}">ver</a>
-        <hr>
-    @empty
-        <p>Nenhuma Post Cadastrado</p>
-    @endforelse
-
+        <tbody>
+        @forelse ($posts as $post)
+            <tr>
+                <th class="text-uppercase">{{ $post->title }}</th>
+                <td>
+                    <a class="btn btn-primary " href="{{ route('posts.show', $post->id )}}">vê</a>
+                </td>
+            </tr>
+        @empty
+            <tr>
+                <th>Nenhum postagens cadastrada</th>
+            </tr>
+        @endforelse
+        </tbody>
+    </table>
     {!! $posts->links() !!}
 @endsection
