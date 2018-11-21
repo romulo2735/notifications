@@ -1,10 +1,21 @@
 <div class="">
     @if(auth()->check())
 
-        {{-- Mensagem de Sucesoo ao criar o comentário --}}
+        {{-- Mensagem de Sucesos ao criar o comentário --}}
         @if(session('success'))
             <div class="alert alert-success">
                 {{ session('success')  }}
+            </div>
+        @endif
+
+        {{-- Mensgem de Erros caso exista --}}
+        @if($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error}}</li>
+                    @endforeach
+                </ul>
             </div>
         @endif
 
