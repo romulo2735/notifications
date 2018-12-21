@@ -11,7 +11,7 @@
         <tbody>
         @forelse ($posts as $post)
             <tr>
-                <th class="text-uppercase">{{ $post->title }}</th>
+                <th class="text-uppercase">{{ $post->title }} ({{ $post->comments->count() }})</th>
                 <td>
                     <a class="btn btn-primary glyphicon glyphicon-eye-open" href="{{ route('posts.show', $post->id )}}">vê</a>
                 </td>
