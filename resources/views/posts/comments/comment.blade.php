@@ -36,6 +36,22 @@
     @else
         <p class="text-danger">Você precisa esta logado para comentar</p>
         <a class="text-white" href="{{ route('login') }}"><button class="btn btn-primary">Login</button></a>
-
     @endif
+</div>
+
+{{-- Exbindo os comentários da postagem --}}
+<div>
+    <h3>Comentários ({{ $post->comments->count() }})</h3>
+
+    @forelse($post->comments as $comment )
+    <div class="form-group">
+        <p class="form-group">
+            <b>{{ $comment->user->name }}</b>
+            {{ $comment->title }}
+            {{ $comment->body }}
+        </p>
+    </div>
+    @empty
+
+    @endforelse
 </div>
