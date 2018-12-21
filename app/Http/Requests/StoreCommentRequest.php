@@ -24,10 +24,18 @@ class StoreCommentRequest extends FormRequest
     public function rules()
     {
         return [
-            /** O exits garante que o comentário exista para aquele Post, para que o User não burle o sistema */
-            'product_id' => 'required|exits:posts,id',
+            /* O exits garante que o comentário exista para aquele Post, para que o User não burle o sistema */
+            'post_id' => 'required|exists:posts,id',
             'title' => 'required|min:3|max:100',
             'body' => 'required|min:3|max:1000',
+        ];
+    }
+
+    public function messages(){
+
+        return [
+            'title.required' => 'O Titulo é obrigatório',
+            'body.required' => 'A Descrição é obrigatório',
         ];
     }
 }

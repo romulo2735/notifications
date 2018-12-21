@@ -8,7 +8,7 @@
             </div>
         @endif
 
-        {{-- Mensgem de Erros caso exista --}}
+        {{-- Mensagem de erros  caso exista obrigatório não seja preenchido --}}
         @if($errors->any())
             <div class="alert alert-danger">
                 <ul>

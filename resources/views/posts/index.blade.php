@@ -4,7 +4,7 @@
     <table class="table table-hover">
         <thead>
             <tr>
-                <th scope="col-2">Postagens</th>
+                <th scope="col-2"><h1>Postagens</h1></th>
             </tr>
         </thead>
 
@@ -13,7 +13,7 @@
             <tr>
                 <th class="text-uppercase">{{ $post->title }}</th>
                 <td>
-                    <a class="btn btn-primary " href="{{ route('posts.show', $post->id )}}">vê</a>
+                    <a class="btn btn-primary glyphicon glyphicon-eye-open" href="{{ route('posts.show', $post->id )}}">vê</a>
                 </td>
             </tr>
         @empty
