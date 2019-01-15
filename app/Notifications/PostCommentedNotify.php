@@ -8,7 +8,7 @@ use Illuminate\Notifications\Notification;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 
-class PostCommentedNotify extends Notification
+class PostCommentedNotify extends Notification implements ShouldQueue
 {
     use Queueable;
 
@@ -33,7 +33,7 @@ class PostCommentedNotify extends Notification
      */
     public function via($notifiable){
 
-        return ['mail'];
+        return ['mail', 'database'];
     }
 
     /**
@@ -61,6 +61,19 @@ class PostCommentedNotify extends Notification
 
         return [
             //
+        ];
+    }
+
+    /**
+     * Get the array representation of the notification.
+     *
+     * @param  mixed  $notifiable
+     * @return array
+     */
+    public function toDatabase($notifiable){
+
+        return [
+            'comment' => $this->comment,
         ];
     }
 }
