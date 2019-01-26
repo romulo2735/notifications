@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <table class="table table-hover">
+    <table class="table table-striped">
         <thead>
             <tr>
                 <th scope="col-2"><h1>Postagens</h1></th>
@@ -13,7 +13,7 @@
             <tr>
                 <th class="text-uppercase">{{ $post->title }} ({{ $post->comments->count() }})</th>
                 <td>
-                    <a class="btn btn-primary glyphicon glyphicon-eye-open" href="{{ route('posts.show', $post->id )}}">vê</a>
+                    <a class="btn btn-primary glyphicon glyphicon-search" href="{{ route('posts.show', $post->id )}}">show</a>
                 </td>
             </tr>
         @empty
