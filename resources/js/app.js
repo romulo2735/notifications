@@ -14,6 +14,7 @@ window.Vue = require('vue');
  */
 Vue.component('notifications', require('./components/notifications/Notifications'));
 
+import Vue from 'vue';
 
 const app = new Vue({
     el: '#app'
